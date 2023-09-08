@@ -48,10 +48,10 @@ def ps(description, delay=0.02):
         while True:
             key = sys.stdin.read(1)
             if key == 's':
-                skip_print = True
+                skip_print.set()
                 break
 
-    skip_print = False
+    skip_print = threading.Event()
 
     input_thread = threading.Thread(target=input_listener)
     input_thread.daemon = True
